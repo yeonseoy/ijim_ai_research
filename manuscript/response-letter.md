@@ -10,7 +10,7 @@ Dear Professor Chau and Reviewers,
 
 We sincerely thank you for the thorough and constructive evaluation of our manuscript. We are grateful for the opportunity to revise and resubmit, and we recognize that the original manuscript had substantial shortcomings in theoretical framing, methodological rigor, and structural completeness. The review comments were instrumental in identifying and addressing these issues.
 
-We have undertaken a comprehensive revision that includes: (1) a complete reconceptualization of the worker classification framework, replacing "skill" with task-based "proficiency"; (2) a new technical subsection specifying the AI system's distinctive components; (3) six new empirical analyses---event-study diagnostics, sensitivity bounds, dose-response estimation, stable-worker robustness checks, inequality decomposition, and within-period learning dynamics; (4) a restructured introduction with focused research questions; (5) new Conclusion, Limitations, and Implications sections; and (6) a critically rewritten literature review. The table below summarizes the major changes.
+We have undertaken a comprehensive revision that includes: (1) a complete reconceptualization of the worker classification framework, replacing "skill" with task-based "proficiency"; (2) a new technical subsection specifying the AI system's distinctive components; (3) eight new empirical analyses---event-study diagnostics, sensitivity bounds, dose-response estimation, stable-worker robustness checks, inequality decomposition, within-period learning dynamics, a worker-customer linkage analysis, and submission diagnostics on sample representativeness and design-based precision; (4) a restructured introduction with focused research questions; (5) new Conclusion, Limitations, and Implications sections; and (6) a critically rewritten literature review. The table below summarizes the major changes.
 
 ### Summary of Major Changes
 
@@ -26,6 +26,8 @@ We have undertaken a comprehensive revision that includes: (1) a complete reconc
 | Stable workers | Robustness to compositional change | Section 6.4 |
 | Inequality metrics | Gini/Theil decomposition | Section 6.5 |
 | Learning dynamics | Within-period temporal analysis | Section 6.6 |
+| Worker-customer linkage | Productivity-waiting-time transmission analysis | Section 5.3 |
+| Sample diagnostics | Representativeness benchmark + precision analysis | Section 3.2 / Appendix |
 | Consumer claims | Appropriately scoped down | Sections 5, 7 |
 | Social impact | Reframed as empirical finding, not design intent | Section 7 |
 | Structure | New Conclusion, Limitations, Implications | Section 8 |
@@ -61,13 +63,13 @@ First, we have restructured the introduction around three focused, falsifiable r
 
 - **RQ1:** How does AI-based task assignment affect worker productivity across baseline proficiency levels?
 - **RQ2:** Does AI-based task assignment compress or widen the cross-worker productivity distribution?
-- **RQ3:** Does AI-based task assignment improve customer delivery experience, and is this mediated by worker-side efficiency gains?
+- **RQ3:** Does AI-based task assignment improve customer delivery experience, and how are customer outcomes linked to worker-side efficiency?
 
 These questions establish a clear analytical progression: RQ1 identifies heterogeneous treatment effects, RQ2 examines distributional consequences, and RQ3 traces the worker-to-customer transmission channel.
 
 Second, we have rebalanced the introduction to present the worker and consumer dimensions in parallel from the outset, framing the study as a multi-stakeholder investigation of AI-based task assignment in platform operations.
 
-Third, we have added a worker-consumer linkage analysis (Section 5.3) that directly examines how AI-induced changes in worker behavior transmit to customer outcomes. Specifically, we test whether the reduction in delivery time attributable to AI adoption mediates the observed improvement in customer-rated delivery experience among orders served by treated riders.
+Third, we have added a worker-consumer linkage analysis (Section 5.3) that directly examines how worker-side efficiency covaries with customer outcomes. Using matched rider-day and order-level data, we show that more productive rider-days are associated with shorter customer waiting times, even though AI adoption itself does not generate a statistically significant average waiting-time reduction within our observation window. This allows us to discuss the worker-to-customer transmission channel without over-claiming a formal mediation design that the data cannot support.
 
 ---
 
@@ -79,7 +81,7 @@ We appreciate this critique, which has substantively strengthened the paper. We 
 
 **AI technical description.** We have added a new subsection (Section 3.1) that describes the technical architecture of the AI-based task assignment system, specifying three characteristics that distinguish it from conventional rule-based or algorithmic dispatch: (a) *revealed preference estimation*---the system infers rider-task compatibility from historical completion patterns rather than applying pre-specified rules; (b) *personalized matching quality*---it computes individualized rider-order match scores that account for rider-specific strengths across task dimensions; and (c) *dynamic model updating*---the matching algorithm continuously recalibrates as new performance data accumulate. These features satisfy established definitional criteria for AI systems in the information systems literature (Berente et al., 2021; Raisch & Krakowski, 2021; Russell & Norvig, 2021), specifically the capacity for autonomous learning and environmental adaptation.
 
-**Scaled-back social impact claims.** We no longer claim that AI "promotes social equality." Instead, we document that, in this specific setting, AI-based task assignment produced *progressive distributional outcomes*---proportionally larger productivity gains for lower-proficiency workers. We provide a mechanism-based explanation grounded in ceiling effects and task-component substitution: lower-proficiency workers have more improvable task components (particularly navigation and route optimization) that the AI system can effectively augment, whereas higher-proficiency workers already perform near ceiling on these dimensions.
+**Scaled-back social impact claims.** We no longer claim that AI "promotes social equality." Instead, we document that, in this specific setting, AI-based task assignment produced *progressive distributional outcomes* in the sense of compressing the productivity distribution, with the clearest gains appearing below the top proficiency tier and especially among medium-proficiency riders. We provide a mechanism-based explanation grounded in ceiling effects and task-component substitution: top-proficiency workers already perform near ceiling on automatable task components, while medium-proficiency workers are better positioned to convert improved order matching into realized throughput gains.
 
 This finding is consistent with a growing body of evidence documenting unintended equalizing effects of AI across diverse work contexts. Brynjolfsson et al. (2025) report that generative AI tools increased customer support agent productivity by 34% among the lowest-ability workers while producing negligible effects for the highest-ability agents. Noy and Zhang (2023) find that ChatGPT "compresses the productivity distribution" in professional writing tasks, with the largest gains accruing to below-median workers. Dell'Acqua et al. (2023) report that below-average consultants improved by 43% on tasks within AI's capability frontier, compared to 17% for above-average consultants. We explicitly invoke Merton's (1936) framework of unanticipated consequences of purposive action to theorize how efficiency-oriented algorithmic design can produce distributional effects that were not part of the design objective.
 
@@ -182,6 +184,8 @@ We fully agree and have revised all consumer-related claims accordingly. The rev
 
 > **Revised text (Section 5.2):** "We emphasize that our consumer-side analysis captures the delivery experience conditional on being served by an AI-adopting rider. We do not observe or claim improvements in platform-wide consumer welfare, which would require modeling general equilibrium effects including potential displacement of orders from non-adopting riders."
 
+We have also added a complementary linkage analysis showing that rider-day productivity and customer waiting times are operationally connected within the matched sample: a one-unit increase in rider-day productivity is associated with a 0.020-minute reduction in average customer waiting time (SE = 0.004, p < 0.001). This allows us to distinguish two claims that were blurred in the original manuscript: there is evidence of a worker-to-customer transmission channel, but the average AI adoption effect on waiting time remains statistically indistinguishable from zero over the short observation window.
+
 ---
 
 ### Minor Comment #1: Reference Duplicates
@@ -212,7 +216,7 @@ The Gini coefficient decreased from 0.181 to 0.152 (a 15.9% reduction), and the 
 
 **Reviewer 1 requested clarification of the fixed effects included in the consumer-side regressions.**
 
-We have added a detailed footnote to the consumer regression table specifying all included fixed effects: customer fixed effects, station-by-date fixed effects, and order-level controls (distance, time of day, weather conditions). The footnote also clarifies the level of clustering (rider level) and explains the rationale for each fixed effect.
+We have added a detailed footnote to the consumer regression table specifying all included controls used in the revised analysis: rider fixed effects, station-by-date fixed effects, hour-of-day-by-day-of-week controls, and distance controls, with standard errors clustered at the rider level. We also clarify that the current data do not support customer fixed effects or weather controls, and we therefore avoid claiming those specifications.
 
 ---
 
@@ -266,7 +270,7 @@ We have added 18 new references, including platform-specific empirical studies: 
 
 **Reviewer 2 questioned whether one month of pre- and post-adoption data is sufficient, and raised concerns about sample representativeness.**
 
-We acknowledge that the observation window (30 days pre- and post-adoption) is shorter than ideal and address this in three ways. First, we provide an institutional justification: the platform's adoption rollout was completed within this window, and the data represent the complete available records during this transition period. Second, we present a power analysis confirming that our sample (936 riders, 33,896 rider-day observations) provides adequate statistical power to detect economically meaningful effect sizes. Third, we provide a sample representativeness comparison, benchmarking our riders' characteristics against publicly available statistics on the platform's overall workforce.
+We acknowledge that the observation window (30 days pre- and post-adoption) is shorter than ideal and address this in three ways. First, we provide an institutional justification: the platform's adoption rollout was completed within this window, and the data represent the complete available records during this transition period. Second, we report a design-based precision analysis based on the clustered DID standard errors. In the matched design, the minimum detectable effect at 80% power is 0.212 orders per hour for daily productivity (4.3% of the matched-sample mean) and 0.461 minutes for customer waiting time (2.6% of the order-level mean). Third, we provide a sample representativeness comparison using all active Busan riders in the study window as a benchmark. The analytic full sample closely tracks that benchmark on the core operating metrics: mean orders per hour are 4.586 for all active Busan riders versus 4.620 in the analytic sample; daily orders are 30.63 versus 30.81; daily labor hours are 6.77 versus 6.76; and daily fees are 91,736 versus 92,296 KRW.
 
 The short observation period is explicitly acknowledged as a primary limitation in the new Limitations section (Section 8.2), where we discuss implications for long-term effect persistence and call for future research with extended time horizons.
 
@@ -281,7 +285,7 @@ This concern overlaps substantially with Reviewer 1's Major Comment #3. We addre
 1. **Event-study analysis** (Section 6.1): The joint F-test (F = 1.41, p = 0.229) provides no evidence of differential pre-trends, supporting the parallel trends assumption.
 2. **Oster (2019) bounds** (Section 6.2): delta-star = -1.249, with |delta-star| > 1 indicating robustness to unobservable selection.
 3. **Dose-response analysis** (Section 6.3): Examines whether treatment effects vary with AI usage intensity.
-4. **Stable workers subsample** (Section 6.4): The treatment effect for workers with stable labor supply (beta = 0.003, 87.5% of sample) lies within the full-sample confidence interval, ruling out compositional change as a confound.
+4. **Stable workers subsample** (Section 6.4): The treatment effect for workers with stable labor supply (beta = 0.003) is based on 691 of the 790 riders observed in both the pre- and post-adoption periods (87.5% of the balanced pre/post rider set) and lies within the full-sample confidence interval, ruling out compositional change as a confound.
 
 While we cannot claim to have fully eliminated selection concerns---a limitation inherent to observational studies of technology adoption---this battery of tests substantially narrows the scope for confounding explanations.
 
